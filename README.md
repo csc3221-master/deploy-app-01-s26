@@ -173,7 +173,7 @@ MONGODB_URI=mongodb://db:27017/transactionsdb
 ```yaml
 services:
   app:
-    image: node:20-bookworm
+    build: .
     working_dir: /app
     volumes:
       - .:/app
@@ -194,8 +194,7 @@ services:
       - mongo-data:/data/db
 
 volumes:
-  mongo-data:
-```
+  mongo-data:```
 
 ---
 
@@ -203,6 +202,17 @@ volumes:
 
 ```dockerfile
 FROM node:20-bookworm
+
+# Install mongosh
+RUN apt-get update && \
+    apt-get install -y wget gnupg && \
+    wget -qO - https://pgp.mongodb.com/server-7.0.asc | \
+    gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg && \
+    echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" \
+    > /etc/apt/sources.list.d/mongodb-org-7.0.list && \
+    apt-get update && \
+    apt-get install -y mongodb-mongosh && \
+    apt-get clean
 
 WORKDIR /app
 
@@ -214,7 +224,7 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["sleep", "infinity"]
 ```
 
 ---
@@ -743,6 +753,12 @@ View logs:
 ```bash
 heroku logs --tail
 ```
+
+**Question** how can we run the seed program on Heroku?
+
+# Phase 15
+
+Test all API routes using browser and Postman on your deployed application.
 
 ---
 
