@@ -139,7 +139,7 @@ Install the Heroku Tools in your computer. Follow the instructions:
 
 
 # Phase 1 - Create your Repo
-Go to GitHub and create a public repo named transactions-api. Remember to set `Node` as your template for `.gitignore` Also, tell GitHub you want it to create a `README` file.
+Go to GitHub and create a public repo named transactions-api. Remember to set `Node` as your template for `.gitignore` Also, tell GitHub you want it to create a `README` file. Clone to your computer.
 
 # Phase 2 - Create the Project Directory and File Structure
 
