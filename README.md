@@ -174,7 +174,6 @@ MONGODB_URI=mongodb://db:27017/transactionsdb
 services:
   app:
     image: node:20-bookworm
-    container_name: transactions-app
     working_dir: /app
     volumes:
       - .:/app
@@ -189,7 +188,6 @@ services:
 
   db:
     image: mongo:7
-    container_name: transactions-db
     ports:
       - "27017:27017"
     volumes:
@@ -667,6 +665,11 @@ curl "http://localhost:3000/transactions?creditCardNickname=Costco%20Visa"
 
 You should also run all `GET` request tests on a browser, and test the `POST` request on Postman.
 
+> Note: But the database has no data. Can we seed some data into it?
+```bash
+npm run seed
+```
+Now try again to do different GETs.
 
 ---
 
