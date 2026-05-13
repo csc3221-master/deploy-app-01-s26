@@ -173,8 +173,9 @@ MONGODB_URI=mongodb://db:27017/transactionsdb
 ```yaml
 services:
   app:
-    build: .
+    image: node:20-bookworm
     container_name: transactions-app
+    working_dir: /app
     volumes:
       - .:/app
       - /app/node_modules
@@ -236,20 +237,19 @@ Create file `.devcontainer/devcontainer.json`:
   "dockerComposeFile": "../docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
 
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.vscode-node-azure-pack",
-        "mongodb.mongodb-vscode",
         "ms-azuretools.vscode-docker",
+        "mongodb.mongodb-vscode",
         "dbaeumer.vscode-eslint"
       ]
     }
   },
 
   "forwardPorts": [3000, 27017],
-
   "remoteUser": "root"
 }
 ```
