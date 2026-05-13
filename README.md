@@ -194,7 +194,8 @@ services:
       - mongo-data:/data/db
 
 volumes:
-  mongo-data:```
+  mongo-data:
+```
 
 ---
 
@@ -491,7 +492,7 @@ startServer().catch((error) => {
 
 ---
 
-# Phase 9 — Create `seed.js`
+# Phase 10 — Create `seed.js`
 
 ```js
 require("dotenv").config();
@@ -622,7 +623,7 @@ seed();
 
 ---
 
-# Phase 10 - Run the Server
+# Phase 11 - Run the Server
 
 Inside the container terminal:
 
@@ -633,7 +634,7 @@ npm run dev
 
 ---
 
-# Phase 11 — Test the API
+# Phase 12 — Test the API
 
 Create a transaction:
 
@@ -683,7 +684,7 @@ Now try again to do different GETs.
 
 ---
 
-# Phase 12 — Prepare for Heroku
+# Phase 13 — Prepare for Heroku
 
 Create a `Procfile`:
 
@@ -700,7 +701,7 @@ git commit -m "Initial transactions API"
 
 ---
 
-# Phase 13 — Create MongoDB Atlas Database
+# Phase 14 — Create MongoDB Atlas Database
 
 Create a MongoDB Atlas cluster.
 
@@ -714,7 +715,7 @@ mongodb+srv://USERNAME:PASSWORD@cluster.mongodb.net/transactionsdb
 
 ---
 
-# Phase 14 — Deploy to Heroku
+# Phase 15 — Deploy to Heroku
 
 The following commands need to be run inside your system terminal, **NOT** the containers terminal.
 
@@ -756,7 +757,7 @@ heroku logs --tail
 
 **Question** how can we run the seed program on Heroku?
 
-# Phase 15
+# Phase 16
 
 Test all API routes using browser and Postman on your deployed application.
 
@@ -799,4 +800,6 @@ You will submit a URL to the repo you created for this activity. On this repo yo
 3. What was the most dificult thing to do in this activity?
 4. How would you say you were prudent in this assignment?
 5. How would you say you need to be prudent when developing this kind of web applications?
-6. Screenshotds
+6. URL of your deployed application as a link.
+7. Screenshots of Postman making requests to your **deployed** application
+8. Screenshotds
